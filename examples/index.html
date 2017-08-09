@@ -22,9 +22,8 @@
                     scribble.draw({
                         "selector": "#Tablet path, #Tablet polygon",
                         "strokeColor": "#f37322",
-                        "strokeWidth": "1.5px",                        
+                        "strokeWidth": "2px",                        
                         "duration": "2000ms",
-                        "strokeOpacity":".8"
                     });
                 }, 1000);
 
@@ -32,11 +31,18 @@
                     scribble.draw({
                         "selector": "#Laptop path, #Laptop polygon",
                         "strokeColor": "#f37322",
-                        "strokeWidth": "1px",  
-                        "duration": "2000ms",
-                        "strokeOpacity":".8"
+                        "strokeWidth": "2px",  
+                        "duration": "2000ms"
                     });
                 }, 2000);
+
+                setTimeout(function(){
+                    scribble.draw({
+                        "action": "erase",
+                        "strokeColor": "#f37322",
+                        "strokeWidth": "2px", 
+                    })
+                }, 5000);
             });
         </script>
     </head>

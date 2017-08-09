@@ -36,8 +36,8 @@ var scribble = (function() {
         "strokeOpacity": "1"
     };
 
-    function overwriteDefaults(customSettings){
-        var settings = defaults;
+    overwriteDefaults = function(customSettings){
+        var settings = copyObject(defaults);
 
         if(typeof customSettings !== "undefined"){
             var customSettingKeys = Object.keys(customSettings);
@@ -50,9 +50,15 @@ var scribble = (function() {
         return settings;
     }
 
+    copyObject = function(object){
+        return JSON.parse(JSON.stringify(object));
+    }
+
     return {
         draw: function(customSettings){
             var settings = overwriteDefaults(customSettings);
+
+            console.log(settings);
 
             var domCollection = document.querySelectorAll(settings.selector);
 
