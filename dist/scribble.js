@@ -32,7 +32,8 @@ var scribble = (function() {
         "loop": "false",
         "strokeWidth": "1px",
         "strokeColor": "#000",
-        "fillColor": "#fff"
+        "fillColor": "#fff",
+        "strokeOpacity": "1"
     };
 
     function overwriteDefaults(customSettings){
@@ -63,6 +64,7 @@ var scribble = (function() {
                         'fill': settings.fillColor,
                         'stroke': settings.strokeColor,
                         'stroke-width': settings.strokeWidth,
+                        'stroke-opacity': settings.strokeOpacity,
                         'stroke-dashoffset': (settings.action === "draw" ? newScribbleElement.strokeLength : "0"),
                         'stroke-dasharray': newScribbleElement.strokeLength + " " + newScribbleElement.strokeLength
                     }
