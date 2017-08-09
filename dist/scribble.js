@@ -18,7 +18,9 @@ var scribble = (function() {
             }
         }
 
-        element.getBoundingClientRect();
+        scribbleElement.flushDOM = function(){
+            element.getBoundingClientRect();
+        }
 
         return scribbleElement;
     }
@@ -40,9 +42,11 @@ var scribble = (function() {
                     }
                 );
 
-                newScribbleElement.setStyles({'transition': 'stroke ' + duration + ', stroke-dashoffset ' + duration});
+                newScribbleElement.setStyles({'transition': 'stroke-dashoffset ' + duration});
 
-                newScribbleElement.setStyles({'stroke-dashoffset': '0', 'stroke': '#f00'});                
+                newScribbleElement.flushDOM();
+
+                newScribbleElement.setStyles({'stroke-dashoffset': '0'});                
             }
         }
     }
