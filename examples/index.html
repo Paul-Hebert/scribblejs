@@ -11,8 +11,20 @@
 
         <script type="text/javascript">
             document.addEventListener("DOMContentLoaded", function() {
-                scribble.draw('path, polygon', '5000ms');
+                scribbleExample();
+
+                setInterval(function(){
+                    scribbleExample();
+                }, 4000);
             });
+
+            function scribbleExample(){
+                scribble.draw('path, polygon', '3000ms');
+
+                setTimeout(function(){
+                    scribble.erase('path, polygon', '1000ms')
+                }, 3000);
+            }
         </script>
     </head>
 

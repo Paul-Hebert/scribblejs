@@ -27,6 +27,14 @@ var scribble = (function() {
 
     return {
         draw: function(selector, duration) {
+            this.update(selector, duration, "forwards")
+        },
+
+        erase: function(selector, duration) {
+            this.update(selector, duration, "backwards")
+        },
+
+        update: function(selector,duration, direction){
             var domCollection = document.querySelectorAll(selector);
 
             for(var i = 0; i < domCollection.length; i++){
@@ -37,7 +45,7 @@ var scribble = (function() {
                         'fill': '#fff',
                         'stroke': '#000',
                         'stroke-width': '1px',
-                        'stroke-dashoffset': newScribbleElement.strokeLength,
+                        'stroke-dashoffset': (direction === "forwards" ? newScribbleElement.strokeLength : "0"),
                         'stroke-dasharray': newScribbleElement.strokeLength + " " + newScribbleElement.strokeLength
                     }
                 );
@@ -46,7 +54,7 @@ var scribble = (function() {
 
                 newScribbleElement.flushDOM();
 
-                newScribbleElement.setStyles({'stroke-dashoffset': '0'});                
+                newScribbleElement.setStyles({'stroke-dashoffset': (direction === "forwards" ? "0" : newScribbleElement.strokeLength)});                
             }
         }
     }
