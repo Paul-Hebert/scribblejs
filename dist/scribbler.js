@@ -70,7 +70,8 @@ var scribbler = (function() {
                         'stroke-width': settings.strokeWidth,
                         'stroke-opacity': settings.strokeOpacity,
                         'stroke-dashoffset': (settings.action === "draw" ? newScribblerElement.strokeLength : "0"),
-                        'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength
+                        'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength,
+                        'transition': 'none' // Clear old transitions
                     }
                 );
 
