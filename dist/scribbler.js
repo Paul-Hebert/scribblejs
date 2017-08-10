@@ -33,7 +33,7 @@ var scribbler = (function() {
         "loop": "false",
         "strokeWidth": "1px",
         "strokeColor": "#000",
-        "fillColor": "#fff",
+        "fillColor": "none",
         "strokeOpacity": "1",
         "strokeLineCap": "miter",
         "strokeLineJoin": "miter"

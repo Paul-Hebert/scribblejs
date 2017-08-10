@@ -1,12 +1,38 @@
+html, body{
+    padding:0;
+    margin:0;
+    background:#f0f0f0;
+}
+
+section{
+    padding:6rem 3rem;
+
+    &:not(:last-of-type){
+        border-bottom:1px solid #fff;
+    }
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+.sub-section{
+    float:left;
+    width:50%;
+}
+
 svg{
     width:100%;
     height:100%;
+    margin:auto auto;
 
     *{
         fill:none;
     }
 
     .filled, #Cover path{
-        fill:#fff;
+        fill:#f0f0f0;
     }
 }
