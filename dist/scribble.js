@@ -58,8 +58,6 @@ var scribble = (function() {
         draw: function(customSettings){
             var settings = overwriteDefaults(customSettings);
 
-            console.log(settings);
-
             var domCollection = document.querySelectorAll(settings.selector);
 
             for(var i = 0; i < domCollection.length; i++){
