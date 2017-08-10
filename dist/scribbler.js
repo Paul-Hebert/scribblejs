@@ -1,10 +1,10 @@
-var scribble = (function() {
-    createScribbleElement = function(element) {
-        var scribbleElement = {};
+var scribbler = (function() {
+    createScribblerElement = function(element) {
+        var scribblerElement = {};
 
-        scribbleElement.strokeLength = element.getTotalLength();
+        scribblerElement.strokeLength = element.getTotalLength();
 
-        scribbleElement.setStyles = function(styles){
+        scribblerElement.setStyles = function(styles){
             var styleKeys = Object.keys(styles);
 
 
@@ -18,11 +18,11 @@ var scribble = (function() {
             }
         }
 
-        scribbleElement.flushDOM = function(){
+        scribblerElement.flushDOM = function(){
             element.getBoundingClientRect();
         }
 
-        return scribbleElement;
+        return scribblerElement;
     }
 
     var defaults = {
@@ -61,24 +61,24 @@ var scribble = (function() {
             var domCollection = document.querySelectorAll(settings.selector);
 
             for(var i = 0; i < domCollection.length; i++){
-                var newScribbleElement = createScribbleElement(domCollection[i]);
+                var newScribblerElement = createScribblerElement(domCollection[i]);
 
-                newScribbleElement.setStyles(
+                newScribblerElement.setStyles(
                     {
                         'fill': settings.fillColor,
                         'stroke': settings.strokeColor,
                         'stroke-width': settings.strokeWidth,
                         'stroke-opacity': settings.strokeOpacity,
-                        'stroke-dashoffset': (settings.action === "draw" ? newScribbleElement.strokeLength : "0"),
-                        'stroke-dasharray': newScribbleElement.strokeLength + " " + newScribbleElement.strokeLength
+                        'stroke-dashoffset': (settings.action === "draw" ? newScribblerElement.strokeLength : "0"),
+                        'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength
                     }
                 );
 
-                newScribbleElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration});
+                newScribblerElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration});
 
-                newScribbleElement.flushDOM();
+                newScribblerElement.flushDOM();
 
-                newScribbleElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribbleElement.strokeLength)});                
+                newScribblerElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribblerElement.strokeLength)});                
             }
         }
     }
