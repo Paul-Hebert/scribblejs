@@ -3,6 +3,10 @@ svg{
     height:100%;
 
     *{
+        fill:none;
+    }
+
+    .filled, #Cover path{
         fill:#fff;
     }
 }

@@ -28,12 +28,15 @@ var scribbler = (function() {
     var defaults = {
         "selector": "path, polygon",
         "duration": "1000ms",
+        "easing": "ease-out",
         "action": "draw",
         "loop": "false",
         "strokeWidth": "1px",
         "strokeColor": "#000",
         "fillColor": "#fff",
-        "strokeOpacity": "1"
+        "strokeOpacity": "1",
+        "strokeLineCap": "miter",
+        "strokeLineJoin": "miter"
     };
 
     overwriteDefaults = function(customSettings){
@@ -71,11 +74,13 @@ var scribbler = (function() {
                         'stroke-opacity': settings.strokeOpacity,
                         'stroke-dashoffset': (settings.action === "draw" ? newScribblerElement.strokeLength : "0"),
                         'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength,
+                        'stroke-linejoin': settings.strokeLineJoin,
+                        'stroke-linecap': settings.strokeLineCap,
                         'transition': 'none' // Clear old transitions
                     }
                 );
 
-                newScribblerElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration});
+                newScribblerElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration + ' ' + settings.easing});
 
                 newScribblerElement.flushDOM();
 

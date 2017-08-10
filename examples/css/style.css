@@ -4,5 +4,9 @@ svg {
 }
 
 svg * {
+  fill: none;
+}
+
+svg .filled, svg #Cover path {
   fill: #fff;
 }
