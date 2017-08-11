@@ -27,7 +27,8 @@ var scribbler = (function() {
 
     var defaults = {
         "selector": "path, polygon",
-        "duration": "1000ms",
+        "duration": "1000",
+        "delay": "100",
         "easing": "ease-out",
         "action": "draw",
         "loop": "false",
@@ -59,38 +60,59 @@ var scribbler = (function() {
         return JSON.parse(JSON.stringify(object));
     }
 
+    drawSelector = function(selector, settings){
+        var domCollection = document.querySelectorAll(selector);
+
+        for(var i = 0; i < domCollection.length; i++){
+            var newScribblerElement = createScribblerElement(domCollection[i]);
+
+            newScribblerElement.setStyles(
+                {
+                    'fill': settings.fillColor,
+                    'stroke': settings.strokeColor,
+                    'stroke-width': settings.strokeWidth,
+                    'stroke-opacity': settings.strokeOpacity,
+                    'stroke-dashoffset': (settings.action === "draw" ? newScribblerElement.strokeLength : "0"),
+                    'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength,
+                    'stroke-linejoin': settings.strokeLineJoin,
+                    'stroke-linecap': settings.strokeLineCap,
+                    'transition': 'none' // Clear old transitions
+                }
+            );
+
+            newScribblerElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration + 'ms ' + settings.easing});
+
+            newScribblerElement.flushDOM();
+
+            newScribblerElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribblerElement.strokeLength)});     
+        }
+    }
+
+    delayedDraw = function(selector, settings, timeoutLength){
+        setTimeout(function(){
+            drawSelector(selector, settings);
+        }, timeoutLength);
+    }
+
     return {
         draw: function(customSettings){
             var settings = overwriteDefaults(customSettings);
+            var timeoutLength = 0;
 
-            var domCollection = document.querySelectorAll(settings.selector);
+            if(typeof settings.selector === "object"){
+                for(x = 0; x < settings.selector.length; x++){
+                    delayedDraw(settings.selector[x], settings, timeoutLength);
 
-            for(var i = 0; i < domCollection.length; i++){
-                var newScribblerElement = createScribblerElement(domCollection[i]);
-
-                newScribblerElement.setStyles(
-                    {
-                        'fill': settings.fillColor,
-                        'stroke': settings.strokeColor,
-                        'stroke-width': settings.strokeWidth,
-                        'stroke-opacity': settings.strokeOpacity,
-                        'stroke-dashoffset': (settings.action === "draw" ? newScribblerElement.strokeLength : "0"),
-                        'stroke-dasharray': newScribblerElement.strokeLength + " " + newScribblerElement.strokeLength,
-                        'stroke-linejoin': settings.strokeLineJoin,
-                        'stroke-linecap': settings.strokeLineCap,
-                        'transition': 'none' // Clear old transitions
-                    }
-                );
-
-                newScribblerElement.setStyles({'transition': 'stroke-dashoffset ' + settings.duration + ' ' + settings.easing});
-
-                newScribblerElement.flushDOM();
-
-                newScribblerElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribblerElement.strokeLength)});     
+                    timeoutLength += parseFloat(settings.delay) + parseFloat(settings.duration);
+                }
+            } else{
+                drawSelector(settings.selector, settings);
             }
 
             if(typeof settings.callback === "function"){
-                settings.callback();
+                setTimeout(function(){
+                    settings.callback();
+                }, timeoutLength);
             }
         }
     }

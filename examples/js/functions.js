@@ -6,11 +6,11 @@ var primaryColor = "#f37322";
 var strokeWidth = "3px";
 
 document.addEventListener("DOMContentLoaded", function() {
-    scribblerExample();
+    /*scribblerExample();
 
     setInterval(function(){
         scribblerExample()
-    }, 7500);
+    }, 7500);*/
 
     logoExample();
 });
@@ -25,7 +25,7 @@ scribblerExample = function(){
         "selector": "#Phone path, #Phone polygon",
         "strokeColor": primaryColor,
         "strokeWidth": "2px",
-        "duration": "2000ms",
+        "duration": "2000",
         "fillColor": "#f0f0f0"
     });
 
@@ -34,7 +34,7 @@ scribblerExample = function(){
             "selector": "#Tablet path, #Tablet polygon",
             "strokeColor": primaryColor,
             "strokeWidth": "2px",                        
-            "duration": "2000ms",
+            "duration": "2000",
             "fillColor": "#f0f0f0"
         });
     }, 1000);
@@ -44,7 +44,7 @@ scribblerExample = function(){
             "selector": "#Laptop path, #Laptop polygon",
             "strokeColor": primaryColor,
             "strokeWidth": "2px",  
-            "duration": "2000ms",
+            "duration": "2000",
             "fillColor": "#f0f0f0"
         });
     }, 2000);
@@ -66,263 +66,44 @@ scribblerExample = function(){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 var logoExample = function(){
-    var duration = 600;
-
-    var timeOut = duration;
-
-    timeOutChange = duration + 50;
-
     scribbler.draw({
         "strokeColor": primaryColor,
         "strokeWidth": strokeWidth, 
-        "selector": "#S path",
-        "duration": duration + "ms",
-        "easing": "ease-in-out"
+        "duration": "600",
+        "easing": "ease-in-out",
+        "selector": [
+            "#S path",
+            "#C path",
+            "#R1 path",
+            "#I1 path",
+            "#B1 path",
+            "#B2 path",
+            "#L path",
+            "#E path",
+            "#R2 path",
+            "#I2 path"
+        ],
+        callback: function(){
+            scribbler.draw({
+                "strokeColor": primaryColor,
+                "strokeWidth": "20px", 
+                "duration": "600",
+                "easing": "ease-in-out",
+                "strokeLineCap": "bevel",
+                "strokeLineJoin": "bevel",
+                "selector": [
+                    "#S-mask path",
+                    "#C-mask path",
+                    "#R1-mask path",
+                    "#I1-mask path",
+                    "#B1-mask path",
+                    "#B2-mask path",
+                    "#L-mask path",
+                    "#E-mask path",
+                    "#R2-mask path",
+                    "#I2-mask path"
+                ]
+            });
+        }
     });
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#C path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#R1 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#I1 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#B1 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#B2 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#L path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#E path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#R2 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": strokeWidth, 
-            "selector": "#I2 path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#S-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#C-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#R1-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#I1-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#B1-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#B2-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#L-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#E-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#R2-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
-
-    timeOut += timeOutChange;
-
-    setTimeout(function(){
-        scribbler.draw({
-            "strokeColor": primaryColor,
-            "strokeWidth": "20px", 
-            "selector": "#I2-mask path",
-            "duration": duration + "ms",
-            "easing": "ease-in-out",
-            "strokeLineCap": "bevel",
-            "strokeLineJoin": "bevel"
-        });
-    }, timeOut);
 }
