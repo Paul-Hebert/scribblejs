@@ -6,11 +6,11 @@ var primaryColor = "#f37322";
 var strokeWidth = "3px";
 
 document.addEventListener("DOMContentLoaded", function() {
-    /*scribblerExample();
+    scribblerExample();
 
     setInterval(function(){
         scribblerExample()
-    }, 7500);*/
+    }, 7500);
 
     logoExample();
 });
@@ -22,44 +22,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
 scribblerExample = function(){
     scribbler.draw({
-        "selector": "#Phone path, #Phone polygon",
         "strokeColor": primaryColor,
         "strokeWidth": "2px",
         "duration": "2000",
-        "fillColor": "#f0f0f0"
+        "fillColor": "#f0f0f0",
+        "delay": -1000,
+        "selector": [
+            "#Phone path, #Phone polygon",
+            "#Tablet path, #Tablet polygon",
+            "#Laptop path, #Laptop polygon"
+        ],
+        "callback": function(){
+            setTimeout(function(){
+                scribbler.draw({
+                    "selector": "#websites path, #websites polygon",
+                    "action": "erase",
+                    "strokeColor": primaryColor,
+                    "strokeWidth": "2px",
+                    "fillColor": "#f0f0f0"
+                });
+            }, 2000);
+        }
     });
-
-    setTimeout(function(){
-        scribbler.draw({
-            "selector": "#Tablet path, #Tablet polygon",
-            "strokeColor": primaryColor,
-            "strokeWidth": "2px",                        
-            "duration": "2000",
-            "fillColor": "#f0f0f0"
-        });
-    }, 1000);
-
-    setTimeout(function(){
-        scribbler.draw({
-            "selector": "#Laptop path, #Laptop polygon",
-            "strokeColor": primaryColor,
-            "strokeWidth": "2px",  
-            "duration": "2000",
-            "fillColor": "#f0f0f0"
-        });
-    }, 2000);
-
-    setTimeout(function(){
-        scribbler.draw({
-            "selector": "#websites path, #websites polygon",
-            "action": "erase",
-            "strokeColor": primaryColor,
-            "strokeWidth": "2px",
-            "fillColor": "#f0f0f0"
-        })
-    }, 5000);
 }
-
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 // Logo Example
@@ -83,7 +68,7 @@ var logoExample = function(){
             "#R2 path",
             "#I2 path"
         ],
-        callback: function(){
+        "callback": function(){
             scribbler.draw({
                 "strokeColor": primaryColor,
                 "strokeWidth": "20px", 

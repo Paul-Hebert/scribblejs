@@ -99,7 +99,7 @@ var scribbler = (function() {
             var settings = overwriteDefaults(customSettings);
             var timeoutLength = 0;
 
-            if(typeof settings.selector === "object"){
+            if(typeof settings.selector === "object"){ // This is an array of selectors
                 for(x = 0; x < settings.selector.length; x++){
                     delayedDraw(settings.selector[x], settings, timeoutLength);
 
