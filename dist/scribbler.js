@@ -36,7 +36,8 @@ var scribbler = (function() {
         "fillColor": "none",
         "strokeOpacity": "1",
         "strokeLineCap": "miter",
-        "strokeLineJoin": "miter"
+        "strokeLineJoin": "miter",
+        "callback": null
     };
 
     overwriteDefaults = function(customSettings){
@@ -53,6 +54,7 @@ var scribbler = (function() {
         return settings;
     }
 
+    // Can't handle functions as properties.
     copyObject = function(object){
         return JSON.parse(JSON.stringify(object));
     }
@@ -84,7 +86,11 @@ var scribbler = (function() {
 
                 newScribblerElement.flushDOM();
 
-                newScribblerElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribblerElement.strokeLength)});                
+                newScribblerElement.setStyles({'stroke-dashoffset': (settings.action === "draw" ? "0" : newScribblerElement.strokeLength)});     
+            }
+
+            if(typeof settings.callback === "function"){
+                settings.callback();
             }
         }
     }
