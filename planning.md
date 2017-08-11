@@ -24,8 +24,11 @@
 
 # Landing Page Content
 
-* Logo
+* Branding
+    - Title: Scribbler.js
     - Tagline: A Javascript Library for Easily Animating SVG Line Drawings
+    - Graphic: Logo
+* Description:
 * Responsiveness
     - Heading: Leverage Responsive Scaling
     - Content: 
