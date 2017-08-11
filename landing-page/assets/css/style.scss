@@ -4,6 +4,26 @@ html, body{
     background:#f0f0f0;
 }
 
+header{
+    padding:1.5rem 3rem;
+
+    nav{
+        a{
+            float: right;
+            text-decoration:none;
+            color:#333;
+            padding-left:3rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            
+            &#logo{
+                float: left;
+                width:150px;
+            }
+        }
+    }
+}
+
 section{
     padding:6rem 3rem;
 
