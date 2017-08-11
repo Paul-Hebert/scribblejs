@@ -2,6 +2,8 @@
 // Start Up
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+var primaryColor = "#f37322";
+var strokeWidth = "3px";
 
 document.addEventListener("DOMContentLoaded", function() {
     scribblerExample();
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 scribblerExample = function(){
     scribbler.draw({
         "selector": "#Phone path, #Phone polygon",
-        "strokeColor": "#f37322",
+        "strokeColor": primaryColor,
         "strokeWidth": "2px",
         "duration": "2000ms",
         "fillColor": "#f0f0f0"
@@ -30,7 +32,7 @@ scribblerExample = function(){
     setTimeout(function(){
         scribbler.draw({
             "selector": "#Tablet path, #Tablet polygon",
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "2px",                        
             "duration": "2000ms",
             "fillColor": "#f0f0f0"
@@ -40,7 +42,7 @@ scribblerExample = function(){
     setTimeout(function(){
         scribbler.draw({
             "selector": "#Laptop path, #Laptop polygon",
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "2px",  
             "duration": "2000ms",
             "fillColor": "#f0f0f0"
@@ -51,7 +53,7 @@ scribblerExample = function(){
         scribbler.draw({
             "selector": "#websites path, #websites polygon",
             "action": "erase",
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "2px",
             "fillColor": "#f0f0f0"
         })
@@ -71,8 +73,8 @@ var logoExample = function(){
     timeOutChange = duration + 50;
 
     scribbler.draw({
-        "strokeColor": "#f37322",
-        "strokeWidth": "3px", 
+        "strokeColor": primaryColor,
+        "strokeWidth": strokeWidth, 
         "selector": "#S path",
         "duration": duration + "ms",
         "easing": "ease-in-out"
@@ -80,8 +82,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#C path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -92,8 +94,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#R1 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -104,8 +106,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#I1 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -116,8 +118,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#B1 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -128,8 +130,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#B2 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -140,8 +142,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#L path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -152,8 +154,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#E path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -164,8 +166,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#R2 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -176,8 +178,8 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
-            "strokeWidth": "3px", 
+            "strokeColor": primaryColor,
+            "strokeWidth": strokeWidth, 
             "selector": "#I2 path",
             "duration": duration + "ms",
             "easing": "ease-in-out"
@@ -188,7 +190,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#S-mask path",
             "duration": duration + "ms",
@@ -202,7 +204,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#C-mask path",
             "duration": duration + "ms",
@@ -216,7 +218,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#R1-mask path",
             "duration": duration + "ms",
@@ -230,7 +232,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#I1-mask path",
             "duration": duration + "ms",
@@ -244,7 +246,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#B1-mask path",
             "duration": duration + "ms",
@@ -258,7 +260,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#B2-mask path",
             "duration": duration + "ms",
@@ -272,7 +274,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#L-mask path",
             "duration": duration + "ms",
@@ -286,7 +288,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#E-mask path",
             "duration": duration + "ms",
@@ -300,7 +302,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#R2-mask path",
             "duration": duration + "ms",
@@ -314,7 +316,7 @@ var logoExample = function(){
 
     setTimeout(function(){
         scribbler.draw({
-            "strokeColor": "#f37322",
+            "strokeColor": primaryColor,
             "strokeWidth": "20px", 
             "selector": "#I2-mask path",
             "duration": duration + "ms",
