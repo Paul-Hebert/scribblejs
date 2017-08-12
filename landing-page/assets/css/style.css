@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -22,23 +26,64 @@ header nav a#logo {
   width: 150px;
 }
 
+#logo-animation {
+  width: 66%;
+  margin: 0 auto;
+  display: block;
+  max-width: 500px;
+}
+
 section {
-  padding: 6rem 3rem;
+  padding: 3rem;
+  display: flex;
+  width: 100%;
 }
 
-section:not(:last-of-type) {
-  border-bottom: 1px solid #fff;
+section.hero {
+  min-height: calc(90vh - 3vw);
 }
 
-section:after {
-  content: "";
-  display: table;
-  clear: both;
+section:nth-of-type(odd) {
+  padding: 5rem 3rem;
+  flex-direction: row-reverse;
 }
 
-.sub-section {
-  float: left;
-  width: 50%;
+section:nth-of-type(even) {
+  background: #ddd;
+  position: relative;
+}
+
+section:nth-of-type(even):before {
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  bottom: calc(100% - 3vw);
+  left: 0;
+  right: 0;
+  border-left: 0px solid transparent;
+  border-top: 3vw solid transparent;
+  border-bottom: 3vw solid transparent;
+  border-right: 100vw solid #ddd;
+}
+
+section:nth-of-type(even):not(:last-of-type):after {
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: calc(100% - 3vw);
+  left: 0;
+  right: 0;
+  border-left: 0px solid transparent;
+  border-top: 3vw solid transparent;
+  border-bottom: 3vw solid transparent;
+  border-right: 100vw solid #ddd;
+}
+
+section .sub-section {
+  flex-grow: 1;
+  text-align: left;
 }
 
 svg {
@@ -53,4 +98,8 @@ svg * {
 
 svg .filled, svg #Cover path {
   fill: #f0f0f0;
+}
+
+#websites path, #websites polygon {
+  fill: #ddd;
 }

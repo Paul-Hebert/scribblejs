@@ -28,7 +28,8 @@
     - Title: Scribbler.js
     - Tagline: A Javascript Library for Easily Animating SVG Line Drawings
     - Graphic: Logo
-* Description:
+* Description
+    - Title: Line Animation Made Easy
 * Responsiveness
     - Heading: Leverage Responsive Scaling
     - Content: 

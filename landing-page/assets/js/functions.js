@@ -3,7 +3,6 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 var primaryColor = "#f37322";
-var strokeWidth = "3px";
 
 document.addEventListener("DOMContentLoaded", function() {
     scribblerExample();
@@ -25,7 +24,7 @@ scribblerExample = function(){
         "strokeColor": primaryColor,
         "strokeWidth": "2px",
         "duration": "2000",
-        "fillColor": "#f0f0f0",
+        "fillColor": "#ddd",
         "delay": -1000,
         "selector": [
             "#Phone path, #Phone polygon",
@@ -39,7 +38,7 @@ scribblerExample = function(){
                     "action": "erase",
                     "strokeColor": primaryColor,
                     "strokeWidth": "2px",
-                    "fillColor": "#f0f0f0"
+                    "fillColor": "#ddd"
                 });
             }, 2000);
         }
@@ -53,7 +52,7 @@ scribblerExample = function(){
 var logoExample = function(){
     scribbler.draw({
         "strokeColor": primaryColor,
-        "strokeWidth": strokeWidth, 
+        "strokeWidth": "3px", 
         "duration": "600",
         "easing": "ease-in-out",
         "selector": [

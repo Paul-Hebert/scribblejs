@@ -1,3 +1,7 @@
+*{
+    box-sizing:border-box;
+}
+
 html, body{
     padding:0;
     margin:0;
@@ -24,23 +28,68 @@ header{
     }
 }
 
-section{
-    padding:6rem 3rem;
-
-    &:not(:last-of-type){
-        border-bottom:1px solid #fff;
-    }
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+#logo-animation{
+    width:66%;
+    margin:0 auto;
+    display: block;
+    max-width:500px;
 }
 
-.sub-section{
-    float:left;
-    width:50%;
+$angle-height:3vw;
+
+section{
+    padding: 3rem;
+    display: flex;
+    width:100%;
+
+    &.hero{
+        min-height:calc(90vh - #{$angle-height});
+    }
+    
+    &:nth-of-type(odd){
+        padding:5rem 3rem;
+        flex-direction:row-reverse;
+    }
+
+    &:nth-of-type(even){
+        background:#ddd;
+        position:relative;
+
+        &:before{
+            content:'';
+            height: 0;
+            width: 0;
+            position: absolute;
+            bottom:calc(100% - #{$angle-height});
+            left: 0;
+            right:0;
+
+            border-left: 0px solid transparent;
+            border-top: $angle-height solid transparent;
+            border-bottom: $angle-height solid transparent;
+            border-right: 100vw solid #ddd;
+        }
+
+        &:not(:last-of-type):after{
+            content:'';
+            height: 0;
+            width: 0;
+            position: absolute;
+            top:calc(100% - #{$angle-height});
+            left: 0;
+            right:0;
+
+            border-left: 0px solid transparent;
+            border-top: $angle-height solid transparent;
+            border-bottom: $angle-height solid transparent;
+            border-right: 100vw solid #ddd;
+        }
+    }
+    
+    .sub-section{
+        flex-grow: 1;
+        text-align:left;
+    }
 }
 
 svg{
@@ -55,4 +104,8 @@ svg{
     .filled, #Cover path{
         fill:#f0f0f0;
     }
+}
+
+#websites path, #websites polygon{
+    fill:#ddd;
 }
