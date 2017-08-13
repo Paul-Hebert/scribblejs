@@ -10,6 +10,10 @@ html, body{
 
 header{
     padding:1.5rem 3rem;
+    position:absolute;
+    left: 0;
+    right: 0;
+    top: 0;
 
     nav{
         a{
@@ -22,7 +26,10 @@ header{
             
             &#logo{
                 float: left;
-                width:150px;
+                width:15vw;
+                min-width:150px;
+                max-width:250px;
+                padding-left:0;
             }
         }
     }
@@ -37,13 +44,32 @@ header{
 
 $angle-height:3vw;
 
+$arrow-size : $angle-height * 2;
+
+#arrow{
+    height: $arrow-size;
+    width: $arrow-size;
+    position: absolute;
+    top:calc(90vh - (#{$arrow-size}/2));
+    left:calc(50vw - (#{$arrow-size}/2));
+    z-index:10;
+    opacity: 0;
+    transition:opacity 300ms;
+
+    #arrow-circle{
+        fill:#F1F0F0
+    }
+}
+
 section{
     padding: 3rem;
     display: flex;
+    align-items:center;
     width:100%;
+    z-index:0;
 
     &.hero{
-        min-height:calc(90vh - #{$angle-height});
+        min-height:calc(95vh - #{$angle-height});
     }
     
     &:nth-of-type(odd){

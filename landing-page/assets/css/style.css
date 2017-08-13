@@ -10,6 +10,10 @@ html, body {
 
 header {
   padding: 1.5rem 3rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 }
 
 header nav a {
@@ -23,7 +27,10 @@ header nav a {
 
 header nav a#logo {
   float: left;
-  width: 150px;
+  width: 15vw;
+  min-width: 150px;
+  max-width: 250px;
+  padding-left: 0;
 }
 
 #logo-animation {
@@ -33,14 +40,31 @@ header nav a#logo {
   max-width: 500px;
 }
 
+#arrow {
+  height: 6vw;
+  width: 6vw;
+  position: absolute;
+  top: calc(90vh - (6vw/2));
+  left: calc(50vw - (6vw/2));
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+#arrow #arrow-circle {
+  fill: #F1F0F0;
+}
+
 section {
   padding: 3rem;
   display: flex;
+  align-items: center;
   width: 100%;
+  z-index: 0;
 }
 
 section.hero {
-  min-height: calc(90vh - 3vw);
+  min-height: calc(95vh - 3vw);
 }
 
 section:nth-of-type(odd) {

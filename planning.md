@@ -6,6 +6,7 @@
 * Request animation frame vs. css transitions
 * Animating inside clipping masks
     - Option to fill paths
+* Scroll into view? Should this be included in lib?
 
 ---
 

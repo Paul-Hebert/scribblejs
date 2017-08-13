@@ -7,10 +7,6 @@ var primaryColor = "#f37322";
 document.addEventListener("DOMContentLoaded", function() {
     scribblerExample();
 
-    setInterval(function(){
-        scribblerExample()
-    }, 7500);
-
     logoExample();
 });
 
@@ -19,30 +15,29 @@ document.addEventListener("DOMContentLoaded", function() {
 // Device Example
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
-scribblerExample = function(){
-    scribbler.draw({
-        "strokeColor": primaryColor,
-        "strokeWidth": "2px",
-        "duration": "2000",
-        "fillColor": "#ddd",
-        "delay": -1000,
-        "selector": [
-            "#Phone path, #Phone polygon",
-            "#Tablet path, #Tablet polygon",
-            "#Laptop path, #Laptop polygon"
-        ],
-        "callback": function(){
-            setTimeout(function(){
-                scribbler.draw({
-                    "selector": "#websites path, #websites polygon",
-                    "action": "erase",
-                    "strokeColor": primaryColor,
-                    "strokeWidth": "2px",
-                    "fillColor": "#ddd"
-                });
-            }, 2000);
+var scribbleDevices = function(){
+    //throttle(function(){
+        if(isScrolledIntoView(document.getElementById("websites"))){
+            scribbler.draw({
+                "strokeColor": primaryColor,
+                "strokeWidth": "2px",
+                "duration": "2000",
+                "fillColor": "#ddd",
+                "delay": -1000,
+                "selector": [
+                    "#Phone path, #Phone polygon",
+                    "#Tablet path, #Tablet polygon",
+                    "#Laptop path, #Laptop polygon"
+                ]
+            });
+
+            document.removeEventListener("scroll", scribbleDevices);
         }
-    });
+    //}, 300)
+}
+
+var scribblerExample = function(){
+    document.addEventListener("scroll", scribbleDevices);
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -86,8 +81,44 @@ var logoExample = function(){
                     "#E-mask path",
                     "#R2-mask path",
                     "#I2-mask path"
-                ]
+                ],
+                callback: function(){
+                    document.getElementById('arrow').style.opacity = 1;
+
+                    setTimeout(function(){
+                        scribbler.draw({
+                            'strokeColor':"#ddd",
+                            'strokeWidth': "18px",
+                            'fillColor':"#f0f0f0",
+                            'selector': "#arrow-circle"
+                        });
+                    });
+                }
             });
         }
     });
 }
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+// Helpers
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+function isScrolledIntoView(el) {
+    var elemTop = el.getBoundingClientRect().top;
+    var elemBottom = el.getBoundingClientRect().bottom;
+
+    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+    return isVisible;
+}
+
+function throttle(fn, wait) {
+    var time = Date.now();
+    return function() {
+      if ((time + wait - Date.now()) < 0) {
+        fn();
+        time = Date.now();
+      }
+    }
+  }
+  
