@@ -25,9 +25,9 @@ var scribbleDevices = function(){
                 "fillColor": "#ddd",
                 "delay": -1000,
                 "selector": [
-                    "#Phone path, #Phone polygon",
-                    "#Tablet path, #Tablet polygon",
-                    "#Laptop path, #Laptop polygon"
+                    "#Phone path",
+                    "#Tablet path",
+                    "#Laptop path"
                 ]
             });
 
@@ -90,7 +90,19 @@ var logoExample = function(){
                             'strokeColor':"#ddd",
                             'strokeWidth': "18px",
                             'fillColor':"#f0f0f0",
-                            'selector': "#arrow-circle"
+                            'selector': "#arrow-circle",
+                            'callback': function(){
+                                scribbler.draw({
+                                    'strokeColor':primaryColor,
+                                    'strokeWidth': "12px",
+                                    'strokeLineJoin':"round",
+                                    'fillColor':"none",
+                                    'selector': "#arrow-lines path",
+                                    'callback': function(){
+                                        document.getElementById('arrow').style.cursor = "pointer";
+                                    }
+                                });
+                            }
                         });
                     });
                 }

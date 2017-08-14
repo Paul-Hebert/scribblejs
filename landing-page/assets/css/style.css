@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  color: #333;
 }
 
 html, body {
@@ -23,6 +24,11 @@ header nav a {
   padding-left: 3rem;
   text-transform: uppercase;
   letter-spacing: .1em;
+  transition: color 300ms;
+}
+
+header nav a:hover {
+  color: #f37322;
 }
 
 header nav a#logo {

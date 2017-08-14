@@ -26,7 +26,7 @@ var scribbler = (function() {
     }
 
     var defaults = {
-        "selector": "path, polygon",
+        "selector": "path",
         "duration": "1000",
         "delay": "100",
         "easing": "ease-out",
@@ -105,14 +105,22 @@ var scribbler = (function() {
 
                     timeoutLength += parseFloat(settings.delay) + parseFloat(settings.duration);
                 }
+
+                timeoutLength -= parseFloat(settings.delay);
             } else{
                 drawSelector(settings.selector, settings);
+            }
+
+            var callbackDelay = timeoutLength;
+
+            if(callbackDelay === 0){
+                callbackDelay = settings.duration;
             }
 
             if(typeof settings.callback === "function"){
                 setTimeout(function(){
                     settings.callback();
-                }, timeoutLength);
+                }, callbackDelay);
             }
         }
     }

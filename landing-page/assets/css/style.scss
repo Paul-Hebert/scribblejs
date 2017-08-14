@@ -1,5 +1,9 @@
+$primary-color:#f37322;
+$text-color: #333;
+
 *{
     box-sizing:border-box;
+    color:$text-color;
 }
 
 html, body{
@@ -19,10 +23,15 @@ header{
         a{
             float: right;
             text-decoration:none;
-            color:#333;
+            color:$text-color;
             padding-left:3rem;
             text-transform: uppercase;
             letter-spacing: .1em;
+            transition:color 300ms;
+
+            &:hover{
+                color:$primary-color;
+            }
             
             &#logo{
                 float: left;
