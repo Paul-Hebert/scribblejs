@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function() {
     scribblerExample();
 
     logoExample();
+
+    shapeTest();
 });
 
 
@@ -38,6 +40,12 @@ var scribbleDevices = function(){
 
 var scribblerExample = function(){
     document.addEventListener("scroll", scribbleDevices);
+}
+
+var shapeTest = function(){
+    scribbler.draw({
+        "selector": "#shape-test *"
+    });
 }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
