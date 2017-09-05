@@ -55,12 +55,12 @@ var logoExample = function(){
             "#C path",
             "#R1 path",
             "#I1 path",
+            "#I2 path",
             "#B1 path",
             "#B2 path",
             "#L path",
             "#E path",
-            "#R2 path",
-            "#I2 path"
+            "#R2 path"
         ],
         "callback": function(){
             scribbler.draw({
@@ -74,13 +74,13 @@ var logoExample = function(){
                     "#S-mask path",
                     "#C-mask path",
                     "#R1-mask path",
-                    "#I1-mask path",
+                    "#I1-mask path",,
+                    "#I2-mask path",
                     "#B1-mask path",
                     "#B2-mask path",
                     "#L-mask path",
                     "#E-mask path",
-                    "#R2-mask path",
-                    "#I2-mask path"
+                    "#R2-mask path"
                 ],
                 callback: function(){
                     document.getElementById('arrow').style.opacity = 1;

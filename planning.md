@@ -42,7 +42,7 @@
 * Resources
     - Heading: No Dependencies - Only XXX kb
     - Content:
-    - Graphic:
+    - Graphic: feather?
 * Get Started
     - Heading: No Dependencies - Only XXX kb
     - Content:

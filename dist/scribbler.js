@@ -1,5 +1,5 @@
 var scribbler = (function() {
-    createScribblerElement = function(element) {
+    var createScribblerElement = function(element) {
         var scribblerElement = {};
 
         scribblerElement.strokeLength = element.getTotalLength();
@@ -41,7 +41,6 @@ var scribbler = (function() {
         "callback": null
     };
 
-    overwriteDefaults = function(customSettings){
         var settings = copyObject(defaults);
 
         if(typeof customSettings !== "undefined"){
@@ -56,11 +55,9 @@ var scribbler = (function() {
     }
 
     // Can't handle functions as properties.
-    copyObject = function(object){
         return JSON.parse(JSON.stringify(object));
     }
 
-    drawSelector = function(selector, settings){
         var domCollection = document.querySelectorAll(selector);
 
         for(var i = 0; i < domCollection.length; i++){
@@ -88,7 +85,6 @@ var scribbler = (function() {
         }
     }
 
-    delayedDraw = function(selector, settings, timeoutLength){
         setTimeout(function(){
             drawSelector(selector, settings);
         }, timeoutLength);

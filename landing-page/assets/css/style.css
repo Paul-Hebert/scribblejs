@@ -22,6 +22,7 @@ header nav a {
   text-decoration: none;
   color: #333;
   padding-left: 3rem;
+  padding-top: .5rem;
   text-transform: uppercase;
   letter-spacing: .1em;
   transition: color 300ms;
@@ -37,6 +38,7 @@ header nav a#logo {
   min-width: 150px;
   max-width: 250px;
   padding-left: 0;
+  padding-top: 0;
 }
 
 #logo-animation {
